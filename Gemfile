@@ -17,6 +17,7 @@ group :assets do
   # gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'haml-rails'
 end
 
 gem 'jquery-rails'
@@ -38,3 +39,7 @@ gem 'jbuilder', '~> 1.0.1'
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem 'pry-rails'
+end
