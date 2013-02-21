@@ -1,3 +1,41 @@
 // Place all the styles related to the welcom controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$default_border: 1px #000 solid;
+$hover-color: red;
+
+div.bord {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+div.bord-y {
+  border-left: $default_border;
+  height: 30px;
+}
+
+span.position {
+  width: 30px;
+  height: 30px;
+
+  display: box;
+  display: -moz-box;
+  display: -o-box;
+  display: -webkit-box;
+  display: -ms-box;
+
+  border-right: $default_border;
+  border-bottom: $default_border;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+span.position.y-0 {
+  border-top: $default_border;
+}

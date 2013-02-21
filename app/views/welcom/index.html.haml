@@ -1,2 +1,8 @@
-%h1 Welcom#index
-%p Find me in app/views/welcom/index.html.haml
+%h1 あげはま
+.bord
+  - size = 19
+  - size.times do |y|
+    - style = if y == 0 then 'first' else '' end
+    %div{class: "bord-y y-#{y} #{style}"}
+      - size.times do |x|
+        %span{class: "position x-#{x} y-#{y}"}
