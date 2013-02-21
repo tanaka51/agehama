@@ -83,13 +83,23 @@ GEM
   remote: https://rubygems.org/
   specs:
     atomic (1.0.1)
+    backbone-on-rails (0.9.10.0)
+      eco
+      ejs
+      jquery-rails
+      rails (>= 3.1)
     builder (3.1.4)
     coderay (1.0.8)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
-    ejs (1.0.0)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
+    ejs (1.1.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -126,10 +136,6 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails-backbone (0.7.2)
-      coffee-script (~> 2.2.0)
-      ejs (~> 1.0.0)
-      railties (>= 3.1.0)
     rake (10.0.3)
     rdoc (3.12.1)
       json (~> 1.4)
@@ -160,6 +166,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-deprecated_finders!
   arel!
+  backbone-on-rails
   coffee-rails!
   haml-rails
   jbuilder (~> 1.0.1)
@@ -167,7 +174,6 @@ DEPENDENCIES
   pg
   pry-rails
   rails!
-  rails-backbone
   sass-rails!
   sprockets-rails!
   turbolinks
