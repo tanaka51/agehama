@@ -6,6 +6,7 @@
 $default_border: 1px #000 solid;
 $default_color: #eee8d5;
 $hover-color: red;
+$size: 30px;
 
 div.bord {
   margin: 0;
@@ -16,15 +17,15 @@ div.bord {
 
 div.bord-y {
   border-left: $default_border;
-  height: 31px;
+  height: $size + 1;
 }
 div.bord-y.y-0 {
-  height: 32px;
+  height: $size + 2;
 }
 
 span.position {
-  width: 30px;
-  height: 30px;
+  width: $size;
+  height: $size;
 
   display: box;
   display: -moz-box;
@@ -43,4 +44,14 @@ span.position {
 
 span.position.y-0 {
   border-top: $default_border;
+}
+
+span.position.black {
+  background-color: black;
+}
+span.position.white {
+  background-color: white;
+}
+span.position.highlight {
+  background-color: #ff9999;
 }

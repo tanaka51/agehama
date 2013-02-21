@@ -19,10 +19,26 @@ $ ->
 
     position.html("x:#{x} y:#{y}")
 
-    $("span.position.x-#{x}, span.position.y-#{y}").css("background-color", "#ff9999")
-    $("span.position.x-#{x}.y-#{y}").css("background-color", "#ff6666")
+    $("span.position.x-#{x}, span.position.y-#{y}").map (i, p) ->
+      position = $(p)
+      klass = position.attr("class")
+      if !klass.contains("black") and !klass.contains("white")
+        position.addClass("highlight")
 
   $("span.position").on "mouseleave", ->
     $("div.position p").html(originText)
 
-    $("span.position").css("background-color", "")
+    $("span.position").removeClass("highlight")
+
+
+  black = false
+  $("span.position").on "click", ->
+    position = $(this)
+    black = !black
+    color = ""
+    if black
+      color =  "black"
+    else
+      color =  "white"
+    position.removeClass("highlight")
+    position.addClass(color)
