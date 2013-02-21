@@ -36,22 +36,34 @@ span.position {
   border-right: $default_border;
   border-bottom: $default_border;
 
-  background-color: $default-color;
-  &:hover {
-    background-color: $hover-color;
-  }
+  background-image: url("tiles.png");
 }
 
 span.position.y-0 {
   border-top: $default_border;
 }
 
+span.position.highlight {
+  background-position: 60px 0px;
+}
+span.position.highlight.me {
+  background-position: 30px 0px;
+}
 span.position.black {
-  background-color: black;
+  background-position: 0px 60px;
+}
+span.position.black.highlight {
+  background-position: 60px 60px;
+}
+span.position.black.highlight.me {
+  background-position: 30px 60px;
 }
 span.position.white {
-  background-color: white;
+  background-position: 0px 30px;
 }
-span.position.highlight {
-  background-color: #ff9999;
+span.position.white.highlight {
+  background-position: 60px 30px;
+}
+span.position.white.highlight.me {
+  background-position: 30px 30px;
 }
