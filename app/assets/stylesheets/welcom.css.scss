@@ -4,6 +4,7 @@
 
 
 $default_border: 1px #000 solid;
+$default_color: #eee8d5;
 $hover-color: red;
 
 div.bord {
@@ -15,7 +16,10 @@ div.bord {
 
 div.bord-y {
   border-left: $default_border;
-  height: 30px;
+  height: 31px;
+}
+div.bord-y.y-0 {
+  height: 32px;
 }
 
 span.position {
@@ -31,6 +35,7 @@ span.position {
   border-right: $default_border;
   border-bottom: $default_border;
 
+  background-color: $default-color;
   &:hover {
     background-color: $hover-color;
   }
