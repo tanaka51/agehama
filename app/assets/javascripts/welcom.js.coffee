@@ -19,5 +19,10 @@ $ ->
 
     position.html("x:#{x} y:#{y}")
 
+    $("span.position.x-#{x}, span.position.y-#{y}").css("background-color", "#ff9999")
+    $("span.position.x-#{x}.y-#{y}").css("background-color", "#ff6666")
+
   $("span.position").on "mouseleave", ->
     $("div.position p").html(originText)
+
+    $("span.position").css("background-color", "")
