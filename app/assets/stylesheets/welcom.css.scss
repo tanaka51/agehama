@@ -3,9 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$default_border: 1px #000 solid;
-$default_color: #eee8d5;
-$hover-color: red;
 $size: 30px;
 
 div.bord {
@@ -13,14 +10,6 @@ div.bord {
   padding: 0;
   line-height: 0;
   font-size: 0;
-}
-
-div.bord-y {
-  border-left: $default_border;
-  height: $size + 1;
-}
-div.bord-y.y-0 {
-  height: $size + 2;
 }
 
 span.position {
@@ -33,14 +22,7 @@ span.position {
   display: -webkit-box;
   display: -ms-box;
 
-  border-right: $default_border;
-  border-bottom: $default_border;
-
   background-image: url("tiles.png");
-}
-
-span.position.y-0 {
-  border-top: $default_border;
 }
 
 span.position.highlight {
