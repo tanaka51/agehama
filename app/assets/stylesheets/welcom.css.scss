@@ -26,26 +26,26 @@ span.position {
 }
 
 span.position.highlight {
-  background-position: 60px 0px;
+  background-position: $size*2 0px;
 }
 span.position.highlight.me {
-  background-position: 30px 0px;
+  background-position: $size 0px;
 }
 span.position.black {
-  background-position: 0px 60px;
+  background-position: 0px $size*2;
 }
 span.position.black.highlight {
-  background-position: 60px 60px;
+  background-position: $size*2 $size*2;
 }
 span.position.black.highlight.me {
-  background-position: 30px 60px;
+  background-position: $size $size*2;
 }
 span.position.white {
-  background-position: 0px 30px;
+  background-position: 0px $size;
 }
 span.position.white.highlight {
-  background-position: 60px 30px;
+  background-position: $size*2 $size;
 }
 span.position.white.highlight.me {
-  background-position: 30px 30px;
+  background-position: $size $size;
 }
