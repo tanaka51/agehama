@@ -10,4 +10,5 @@
     %div{class: "bord-y y-#{y}"}
       - size.times do |x|
         - position_x = if x == 0 then 'left' elsif x == (size - 1) then 'right' else '' end
-        %div{class: "bord-xy x-#{x} y-#{y} #{position_y} #{position_x}"}
+        - star =  if (x == 3 || x == 9 || x == 15) && (y == 3 || y == 9 || y == 15) then 'star' else '' end
+        %div{class: "bord-xy x-#{x} y-#{y} #{star} #{position_y} #{position_x}"}

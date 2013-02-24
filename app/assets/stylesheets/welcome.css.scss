@@ -46,6 +46,7 @@ div.bord-xy {
 }
 
 $pos-nothing: 0;
+$pos-star:    $size * 3;
 $pos-black:   $size * 2;
 $pos-white:   $size;
 
@@ -89,6 +90,47 @@ div.bord-xy.bottom.left.highlight-x.highlight-y { background-position: $size*5  
 div.bord-xy.bottom.right.highlight-x.highlight-y{ background-position: $size    $pos-nothing; }
 
 
+div.bord-xy.star        { background-position: 0 $pos-star; }
+div.bord-xy.star.top    { background-position: $size*32 $pos-star; }
+div.bord-xy.star.bottom { background-position: $size*28 $pos-star; }
+div.bord-xy.star.left   { background-position: $size*24 $pos-star; }
+div.bord-xy.star.right  { background-position: $size*20 $pos-star; }
+div.bord-xy.star.top.left    { background-position: $size*16 $pos-star; }
+div.bord-xy.star.top.right   { background-position: $size*12 $pos-star; }
+div.bord-xy.star.bottom.left { background-position: $size*8  $pos-star; }
+div.bord-xy.star.bottom.right{ background-position: $size*4  $pos-star; }
+
+div.bord-xy.star.highlight-x        { background-position: $size*35 $pos-star; }
+div.bord-xy.star.top.highlight-x    { background-position: $size*31 $pos-star; }
+div.bord-xy.star.bottom.highlight-x { background-position: $size*27 $pos-star; }
+div.bord-xy.star.left.highlight-x   { background-position: $size*23 $pos-star; }
+div.bord-xy.star.right.highlight-x  { background-position: $size*19 $pos-star; }
+div.bord-xy.star.top.left.highlight-x    { background-position: $size*15 $pos-star; }
+div.bord-xy.star.top.right.highlight-x   { background-position: $size*11 $pos-star; }
+div.bord-xy.star.bottom.left.highlight-x { background-position: $size*7  $pos-star; }
+div.bord-xy.star.bottom.right.highlight-x{ background-position: $size*3  $pos-star; }
+
+div.bord-xy.star.highlight-y        { background-position: $size*34 $pos-star; }
+div.bord-xy.star.top.highlight-y    { background-position: $size*30 $pos-star; }
+div.bord-xy.star.bottom.highlight-y { background-position: $size*26 $pos-star; }
+div.bord-xy.star.left.highlight-y   { background-position: $size*22 $pos-star; }
+div.bord-xy.star.right.highlight-y  { background-position: $size*18 $pos-star; }
+div.bord-xy.star.top.left.highlight-y    { background-position: $size*14 $pos-star; }
+div.bord-xy.star.top.right.highlight-y   { background-position: $size*10 $pos-star; }
+div.bord-xy.star.bottom.left.highlight-y { background-position: $size*6  $pos-star; }
+div.bord-xy.star.bottom.right.highlight-y{ background-position: $size*2  $pos-star; }
+
+div.bord-xy.star.highlight-x.highlight-y        { background-position: $size*33 $pos-star; }
+div.bord-xy.star.top.highlight-x.highlight-y    { background-position: $size*29 $pos-star; }
+div.bord-xy.star.bottom.highlight-x.highlight-y { background-position: $size*25 $pos-star; }
+div.bord-xy.star.left.highlight-x.highlight-y   { background-position: $size*21 $pos-star; }
+div.bord-xy.star.right.highlight-x.highlight-y  { background-position: $size*17 $pos-star; }
+div.bord-xy.star.top.left.highlight-x.highlight-y    { background-position: $size*13 $pos-star; }
+div.bord-xy.star.top.right.highlight-x.highlight-y   { background-position: $size*9  $pos-star; }
+div.bord-xy.star.bottom.left.highlight-x.highlight-y { background-position: $size*5  $pos-star; }
+div.bord-xy.star.bottom.right.highlight-x.highlight-y{ background-position: $size    $pos-star; }
+
+
 div.bord-xy.black        { background-position: 0 $pos-black; }
 div.bord-xy.black.top    { background-position: $size*32 $pos-black; }
 div.bord-xy.black.bottom { background-position: $size*28 $pos-black; }
@@ -125,7 +167,7 @@ div.bord-xy.black.bottom.highlight-x.highlight-y { background-position: $size*25
 div.bord-xy.black.left.highlight-x.highlight-y   { background-position: $size*21 $pos-black; }
 div.bord-xy.black.right.highlight-x.highlight-y  { background-position: $size*17 $pos-black; }
 div.bord-xy.black.top.left.highlight-x.highlight-y    { background-position: $size*13 $pos-black; }
-div.bord-xy.black.top.right.highlight-x.highlight-y   { background-position: $size*9 $pos-black; }
+div.bord-xy.black.top.right.highlight-x.highlight-y   { background-position: $size*9  $pos-black; }
 div.bord-xy.black.bottom.left.highlight-x.highlight-y { background-position: $size*5  $pos-black; }
 div.bord-xy.black.bottom.right.highlight-x.highlight-y{ background-position: $size    $pos-black; }
 
@@ -166,6 +208,6 @@ div.bord-xy.white.bottom.highlight-x.highlight-y { background-position: $size*25
 div.bord-xy.white.left.highlight-x.highlight-y   { background-position: $size*21 $pos-white; }
 div.bord-xy.white.right.highlight-x.highlight-y  { background-position: $size*17 $pos-white; }
 div.bord-xy.white.top.left.highlight-x.highlight-y    { background-position: $size*13 $pos-white; }
-div.bord-xy.white.top.right.highlight-x.highlight-y   { background-position: $size*9 $pos-white; }
+div.bord-xy.white.top.right.highlight-x.highlight-y   { background-position: $size*9  $pos-white; }
 div.bord-xy.white.bottom.left.highlight-x.highlight-y { background-position: $size*5  $pos-white; }
 div.bord-xy.white.bottom.right.highlight-x.highlight-y{ background-position: $size    $pos-white; }
