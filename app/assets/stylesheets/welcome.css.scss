@@ -6,10 +6,11 @@
 $size: 30px;
 $length: 19;
 $max-size: $size * $length;
+$edge-size: 10px;
 
 div.bord {
   margin: 0;
-  padding: 0;
+  padding: $edge-size;
   line-height: 0;
   font-size: 0;
 
@@ -17,7 +18,7 @@ div.bord {
   height: $max-size;
 
   background-image: url("background.jpg");
-  background-size: $max-size $max-size;
+  background-size: $max-size + $edge-size $max-size + $edge-size;
 }
 
 div.bord-y {
