@@ -6,7 +6,8 @@
 .bord
   - size = 19
   - size.times do |y|
-    - style = if y == 0 then 'first' else '' end
-    %div{class: "bord-y y-#{y} #{style}"}
+    - position_y = if y == 0 then 'top' elsif y == (size - 1) then 'bottom' else '' end
+    %div{class: "bord-y y-#{y}"}
       - size.times do |x|
-        %span{class: "position x-#{x} y-#{y}"}
+        - position_x = if x == 0 then 'left' elsif x == (size - 1) then 'right' else '' end
+        %div{class: "bord-xy x-#{x} y-#{y} #{position_y} #{position_x}"}

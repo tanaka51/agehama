@@ -4,48 +4,168 @@
 
 
 $size: 30px;
+$length: 19;
+$max-size: $size * $length;
 
 div.bord {
   margin: 0;
   padding: 0;
   line-height: 0;
   font-size: 0;
+
+  width: $max-size;
+  height: $max-size;
+
+  background-image: url("background.jpg");
+  background-size: $max-size $max-size;
 }
 
-span.position {
-  width: $size;
+div.bord-y {
+  width: $max-size;
   height: $size;
 
   display: box;
+  display: -webkit-box;
   display: -moz-box;
   display: -o-box;
-  display: -webkit-box;
   display: -ms-box;
 
-  background-image: url("tiles.png");
+  box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -ms-box-orient: horizontal;
 }
 
-span.position.highlight {
-  background-position: $size*2 0px;
+div.bord-xy {
+  width: $size;
+  height: $size;
+
+  background-image: url("tiles.png");
+  background-position: 0px 0px;
 }
-span.position.highlight.me {
-  background-position: $size 0px;
-}
-span.position.black {
-  background-position: 0px $size*2;
-}
-span.position.black.highlight {
-  background-position: $size*2 $size*2;
-}
-span.position.black.highlight.me {
-  background-position: $size $size*2;
-}
-span.position.white {
-  background-position: 0px $size;
-}
-span.position.white.highlight {
-  background-position: $size*2 $size;
-}
-span.position.white.highlight.me {
-  background-position: $size $size;
-}
+
+$pos-nothing: 0;
+$pos-black:   $size * 2;
+$pos-white:   $size;
+
+div.bord-xy.top    { background-position: $size*32 $pos-nothing; }
+div.bord-xy.bottom { background-position: $size*28 $pos-nothing; }
+div.bord-xy.left   { background-position: $size*24 $pos-nothing; }
+div.bord-xy.right  { background-position: $size*20 $pos-nothing; }
+div.bord-xy.top.left    { background-position: $size*16 $pos-nothing; }
+div.bord-xy.top.right   { background-position: $size*12 $pos-nothing; }
+div.bord-xy.bottom.left { background-position: $size*8  $pos-nothing; }
+div.bord-xy.bottom.right{ background-position: $size*4  $pos-nothing; }
+
+div.bord-xy.highlight-x        { background-position: $size*35 $pos-nothing; }
+div.bord-xy.top.highlight-x    { background-position: $size*31 $pos-nothing; }
+div.bord-xy.bottom.highlight-x { background-position: $size*27 $pos-nothing; }
+div.bord-xy.left.highlight-x   { background-position: $size*23 $pos-nothing; }
+div.bord-xy.right.highlight-x  { background-position: $size*19 $pos-nothing; }
+div.bord-xy.top.left.highlight-x    { background-position: $size*15 $pos-nothing; }
+div.bord-xy.top.right.highlight-x   { background-position: $size*11 $pos-nothing; }
+div.bord-xy.bottom.left.highlight-x { background-position: $size*7  $pos-nothing; }
+div.bord-xy.bottom.right.highlight-x{ background-position: $size*3  $pos-nothing; }
+
+div.bord-xy.highlight-y        { background-position: $size*34 $pos-nothing; }
+div.bord-xy.top.highlight-y    { background-position: $size*30 $pos-nothing; }
+div.bord-xy.bottom.highlight-y { background-position: $size*26 $pos-nothing; }
+div.bord-xy.left.highlight-y   { background-position: $size*22 $pos-nothing; }
+div.bord-xy.right.highlight-y  { background-position: $size*18 $pos-nothing; }
+div.bord-xy.top.left.highlight-y    { background-position: $size*14 $pos-nothing; }
+div.bord-xy.top.right.highlight-y   { background-position: $size*10 $pos-nothing; }
+div.bord-xy.bottom.left.highlight-y { background-position: $size*6  $pos-nothing; }
+div.bord-xy.bottom.right.highlight-y{ background-position: $size*2  $pos-nothing; }
+
+div.bord-xy.highlight-x.highlight-y        { background-position: $size*33 $pos-nothing; }
+div.bord-xy.top.highlight-x.highlight-y    { background-position: $size*29 $pos-nothing; }
+div.bord-xy.bottom.highlight-x.highlight-y { background-position: $size*25 $pos-nothing; }
+div.bord-xy.left.highlight-x.highlight-y   { background-position: $size*21 $pos-nothing; }
+div.bord-xy.right.highlight-x.highlight-y  { background-position: $size*17 $pos-nothing; }
+div.bord-xy.top.left.highlight-x.highlight-y    { background-position: $size*13 $pos-nothing; }
+div.bord-xy.top.right.highlight-x.highlight-y   { background-position: $size*9 $pos-nothing; }
+div.bord-xy.bottom.left.highlight-x.highlight-y { background-position: $size*5  $pos-nothing; }
+div.bord-xy.bottom.right.highlight-x.highlight-y{ background-position: $size    $pos-nothing; }
+
+
+div.bord-xy.black        { background-position: 0 $pos-black; }
+div.bord-xy.black.top    { background-position: $size*32 $pos-black; }
+div.bord-xy.black.bottom { background-position: $size*28 $pos-black; }
+div.bord-xy.black.left   { background-position: $size*24 $pos-black; }
+div.bord-xy.black.right  { background-position: $size*20 $pos-black; }
+div.bord-xy.black.top.left    { background-position: $size*16 $pos-black; }
+div.bord-xy.black.top.right   { background-position: $size*12 $pos-black; }
+div.bord-xy.black.bottom.left { background-position: $size*8  $pos-black; }
+div.bord-xy.black.bottom.right{ background-position: $size*4  $pos-black; }
+
+div.bord-xy.black.highlight-x        { background-position: $size*35 $pos-black; }
+div.bord-xy.black.top.highlight-x    { background-position: $size*31 $pos-black; }
+div.bord-xy.black.bottom.highlight-x { background-position: $size*27 $pos-black; }
+div.bord-xy.black.left.highlight-x   { background-position: $size*23 $pos-black; }
+div.bord-xy.black.right.highlight-x  { background-position: $size*19 $pos-black; }
+div.bord-xy.black.top.left.highlight-x    { background-position: $size*15 $pos-black; }
+div.bord-xy.black.top.right.highlight-x   { background-position: $size*11 $pos-black; }
+div.bord-xy.black.bottom.left.highlight-x { background-position: $size*7  $pos-black; }
+div.bord-xy.black.bottom.right.highlight-x{ background-position: $size*3  $pos-black; }
+
+div.bord-xy.black.highlight-y        { background-position: $size*34 $pos-black; }
+div.bord-xy.black.top.highlight-y    { background-position: $size*30 $pos-black; }
+div.bord-xy.black.bottom.highlight-y { background-position: $size*26 $pos-black; }
+div.bord-xy.black.left.highlight-y   { background-position: $size*22 $pos-black; }
+div.bord-xy.black.right.highlight-y  { background-position: $size*18 $pos-black; }
+div.bord-xy.black.top.left.highlight-y    { background-position: $size*14 $pos-black; }
+div.bord-xy.black.top.right.highlight-y   { background-position: $size*10 $pos-black; }
+div.bord-xy.black.bottom.left.highlight-y { background-position: $size*6  $pos-black; }
+div.bord-xy.black.bottom.right.highlight-y{ background-position: $size*2  $pos-black; }
+
+div.bord-xy.black.highlight-x.highlight-y        { background-position: $size*33 $pos-black; }
+div.bord-xy.black.top.highlight-x.highlight-y    { background-position: $size*29 $pos-black; }
+div.bord-xy.black.bottom.highlight-x.highlight-y { background-position: $size*25 $pos-black; }
+div.bord-xy.black.left.highlight-x.highlight-y   { background-position: $size*21 $pos-black; }
+div.bord-xy.black.right.highlight-x.highlight-y  { background-position: $size*17 $pos-black; }
+div.bord-xy.black.top.left.highlight-x.highlight-y    { background-position: $size*13 $pos-black; }
+div.bord-xy.black.top.right.highlight-x.highlight-y   { background-position: $size*9 $pos-black; }
+div.bord-xy.black.bottom.left.highlight-x.highlight-y { background-position: $size*5  $pos-black; }
+div.bord-xy.black.bottom.right.highlight-x.highlight-y{ background-position: $size    $pos-black; }
+
+
+div.bord-xy.white        { background-position: 0 $pos-white; }
+div.bord-xy.white.top    { background-position: $size*32 $pos-white; }
+div.bord-xy.white.bottom { background-position: $size*28 $pos-white; }
+div.bord-xy.white.left   { background-position: $size*24 $pos-white; }
+div.bord-xy.white.right  { background-position: $size*20 $pos-white; }
+div.bord-xy.white.top.left    { background-position: $size*16 $pos-white; }
+div.bord-xy.white.top.right   { background-position: $size*12 $pos-white; }
+div.bord-xy.white.bottom.left { background-position: $size*8  $pos-white; }
+div.bord-xy.white.bottom.right{ background-position: $size*4  $pos-white; }
+
+div.bord-xy.white.highlight-x        { background-position: $size*35 $pos-white; }
+div.bord-xy.white.top.highlight-x    { background-position: $size*31 $pos-white; }
+div.bord-xy.white.bottom.highlight-x { background-position: $size*27 $pos-white; }
+div.bord-xy.white.left.highlight-x   { background-position: $size*23 $pos-white; }
+div.bord-xy.white.right.highlight-x  { background-position: $size*19 $pos-white; }
+div.bord-xy.white.top.left.highlight-x    { background-position: $size*15 $pos-white; }
+div.bord-xy.white.top.right.highlight-x   { background-position: $size*11 $pos-white; }
+div.bord-xy.white.bottom.left.highlight-x { background-position: $size*7  $pos-white; }
+div.bord-xy.white.bottom.right.highlight-x{ background-position: $size*3  $pos-white; }
+
+div.bord-xy.white.highlight-y        { background-position: $size*34 $pos-white; }
+div.bord-xy.white.top.highlight-y    { background-position: $size*30 $pos-white; }
+div.bord-xy.white.bottom.highlight-y { background-position: $size*26 $pos-white; }
+div.bord-xy.white.left.highlight-y   { background-position: $size*22 $pos-white; }
+div.bord-xy.white.right.highlight-y  { background-position: $size*18 $pos-white; }
+div.bord-xy.white.top.left.highlight-y    { background-position: $size*14 $pos-white; }
+div.bord-xy.white.top.right.highlight-y   { background-position: $size*10 $pos-white; }
+div.bord-xy.white.bottom.left.highlight-y { background-position: $size*6  $pos-white; }
+div.bord-xy.white.bottom.right.highlight-y{ background-position: $size*2  $pos-white; }
+
+div.bord-xy.white.highlight-x.highlight-y        { background-position: $size*33 $pos-white; }
+div.bord-xy.white.top.highlight-x.highlight-y    { background-position: $size*29 $pos-white; }
+div.bord-xy.white.bottom.highlight-x.highlight-y { background-position: $size*25 $pos-white; }
+div.bord-xy.white.left.highlight-x.highlight-y   { background-position: $size*21 $pos-white; }
+div.bord-xy.white.right.highlight-x.highlight-y  { background-position: $size*17 $pos-white; }
+div.bord-xy.white.top.left.highlight-x.highlight-y    { background-position: $size*13 $pos-white; }
+div.bord-xy.white.top.right.highlight-x.highlight-y   { background-position: $size*9 $pos-white; }
+div.bord-xy.white.bottom.left.highlight-x.highlight-y { background-position: $size*5  $pos-white; }
+div.bord-xy.white.bottom.right.highlight-x.highlight-y{ background-position: $size    $pos-white; }

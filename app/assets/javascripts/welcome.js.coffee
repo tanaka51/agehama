@@ -11,31 +11,36 @@ $ ->
       originText = text.html()
       first = false
 
-  $("span.position").on "mouseenter", ->
-    me = $(this)
+  addHighlightX = (item) ->
+    $(item).addClass("highlight-x")
 
+  addHighlightY = (item) ->
+    $(item).addClass("highlight-y")
+
+  removeHighlight = (item) ->
+    $(item).removeClass("highlight-x")
+    $(item).removeClass("highlight-y")
+
+  $("div.bord").delegate "div.bord-xy", "mouseenter", ->
     # class likes "position x-0 y-1"
-    classes = me.attr('class').split(' ')
+    classes = $(this).attr('class').split(' ')
     x = classes[1].split('-')[1]
     y = classes[2].split('-')[1]
 
-    $("span.position.x-#{x}, span.position.y-#{y}").map (i, p) ->
-      $(p).addClass("highlight")
-    me.addClass("me")
+    removeHighlight(item) for item in $("div.bord-xy")
+
+    addHighlightX(item) for item in $("div.bord-xy.x-#{x}")
+    addHighlightY(item) for item in $("div.bord-xy.y-#{y}")
 
     text = $("div.position p")
     saveTextAtFirst(text)
     text.html("x:#{x} y:#{y}")
 
-  $("span.position").on "mouseleave", ->
+  $("div.bord").delegate "div.bord-xy", "mouseleave", ->
     $("div.position p").html(originText)
 
-    $("span.position").removeClass("highlight")
-    $(this).removeClass("me")
-
-
   black = false
-  $("span.position").on "click", ->
+  $("div.bord").delegate "div.bord-xy", "click", ->
     position = $(this)
     black = !black
     color = ""
