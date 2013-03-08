@@ -3,7 +3,8 @@ window.Agehama =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: ->
+    new Agehama.BordView
 
 $(document).ready ->
   Agehama.initialize()
