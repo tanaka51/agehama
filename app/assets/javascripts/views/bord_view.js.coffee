@@ -13,8 +13,8 @@ class Agehama.BordView extends Backbone.View
       for x in [0...@size]
         positionX = @getPositionX(x)
         star = @getStar(x, y)
-        $bordXY = $("<div />").addClass("bord-xy x-#{x} y-#{y} #{star} #{positionY} #{positionX}")
-        $bordY.append($bordXY)
+        $point = $("<div />").addClass("point x-#{x} y-#{y} #{star} #{positionY} #{positionX}")
+        $bordY.append($point)
 
       $(@el).append($bordY)
 
