@@ -38,14 +38,3 @@ $ ->
 
   $("div.bord").delegate "div.point", "mouseleave", ->
     $("div.position p").html(originText)
-
-  black = false
-  $("div.bord").delegate "div.point", "click", ->
-    position = $(this)
-    black = !black
-    color = ""
-    if black
-      color =  "black"
-    else
-      color =  "white"
-    position.addClass(color)
