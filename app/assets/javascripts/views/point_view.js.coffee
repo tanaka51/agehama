@@ -19,9 +19,19 @@ class Agehama.PointView extends Backbone.View
 
   events: ->
     "click": "move"
+    "mouseenter": ->
+      Backbone.Mediator.pub 'point:mouseenter', @model.get("x"), @model.get("y")
 
   addStatus: ->
     $(@el).addClass @model.get "status"
 
   move: ->
     @model.set status: "black"
+
+  subscriptions:
+    'point:mouseenter': 'highlight'
+
+  highlight: (x, y) ->
+      $(@el).removeClass "highlight-x highlight-y"
+      $(@el).addClass "highlight-x" if x == @model.get("x")
+      $(@el).addClass "highlight-y" if y == @model.get("y")
