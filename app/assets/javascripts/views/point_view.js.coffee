@@ -21,6 +21,8 @@ class Agehama.PointView extends Backbone.View
     "click": "move"
     "mouseenter": ->
       Backbone.Mediator.pub 'point:mouseenter', @model.get("x"), @model.get("y")
+    "mouseleave": ->
+      Backbone.Mediator.pub 'point:mouseleave'
 
   addStatus: ->
     $(@el).addClass @model.get "status"

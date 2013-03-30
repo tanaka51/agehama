@@ -5,6 +5,7 @@ window.Agehama =
   Routers: {}
   initialize: ->
     new Agehama.BordView
+    new Agehama.InformationView
 
 $(document).ready ->
   Agehama.initialize()
