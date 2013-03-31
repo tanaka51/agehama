@@ -3,7 +3,7 @@ class Agehama.Point extends Backbone.Model
   defaults:
     x      : 0
     y      : 0
-    status : ""     # black, white, eye, ...?
+    status : ""     # "", 'black', 'white'
     top    : false
     bottom : false
     left   : false
@@ -25,3 +25,6 @@ class Agehama.Point extends Backbone.Model
       "right"
     else
       ""
+
+  isEmpty: ->
+    @get('status') == ""

@@ -21,7 +21,7 @@ class Agehama.Bord extends Backbone.Collection
 
   move: (x, y, status) ->
     point = @getByPosition x, y
-    if point.get('status') != ""
+    if !point.isEmpty()
       Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "既に置かれています"
     else if @isEye x, y, status
       Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "着手禁止点です"
