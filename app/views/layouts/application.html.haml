@@ -11,7 +11,7 @@
       .masthead
         %ul.nav.nav-pills.pull-right
           %li
-            %a(href="#") About
+            %a(href="#about" data-toggle="modal") About
         %h3.muted Agehama
 
       %hr
@@ -19,3 +19,17 @@
       .row
         .span12
           = yield
+
+    #about.modal.hide.fade(tabindex="-1" rorle="dialog" aria-labelledby="aboutLabel" aria-hidden="true")
+      .modal-header
+        %button.close(aria-hidden="true" data-dismiss="modal" type="button")×
+        %h3#aboutLabel About
+      .modal-body
+        %h4 Agehama にようこそ
+        %p Agehama はブラウザ上でできる囲碁です。@tanaka51 の趣味によってつくられています。
+
+        %h4 実装予定の機能
+        %ul
+          %li オフラインで棋譜を保存/閲覧
+          %li 棋譜のサーバ保存
+          %li オンライン対戦
