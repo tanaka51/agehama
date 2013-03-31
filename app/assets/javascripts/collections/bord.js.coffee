@@ -15,12 +15,31 @@ class Agehama.Bord extends Backbone.Collection
         @add(new @model x: x, y: y, top: top, bottom: bottom, left: left, right: right, star: star)
 
   getByPosition: (x, y) ->
+    return null unless 0 <= x < @size
+    return null unless 0 <= y < @size
     @at(@size * y + x)
 
   move: (x, y, status) ->
     point = @getByPosition x, y
-    if point.get('status') == ""
+    if point.get('status') != ""
+      Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "既に置かれています"
+    else if @isEye x, y, status
+      Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "着手禁止点です"
+    else
       point.set status: status
       Backbone.Mediator.pub 'bord:successToMove', x, y, status
-    else
-      Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "既に置かれています"
+
+  isEye: (x, y, status) ->
+    top    = @getByPosition x, y - 1
+    bottom = @getByPosition x, y + 1
+    left   = @getByPosition x - 1, y
+    right  = @getByPosition x + 1, y
+    enemy = ''
+    if status == 'black'
+      enemy = 'white'
+    else if status == 'white'
+      enemy = 'black'
+
+    _([top, bottom, left, right]).chain().compact().all((point) ->
+      enemy == point.get 'status'
+    ).value()
