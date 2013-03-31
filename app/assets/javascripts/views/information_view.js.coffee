@@ -7,3 +7,6 @@ class Agehama.InformationView extends Backbone.View
   render: (x, y)->
     position_view = new Agehama.PositionView
     $(@el).append position_view.render().el
+
+    notice_view = new Agehama.NoticeView
+    $(@el).append notice_view.render().el
