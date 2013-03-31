@@ -7,4 +7,15 @@
     = csrf_meta_tags
 
   %body
-    = yield
+    .container
+      .masthead
+        %ul.nav.nav-pills.pull-right
+          %li
+            %a(href="#") About
+        %h3.muted Agehama
+
+      %hr
+
+      .row
+        .span12
+          = yield
