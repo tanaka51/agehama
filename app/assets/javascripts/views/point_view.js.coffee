@@ -18,7 +18,8 @@ class Agehama.PointView extends Backbone.View
     @
 
   events: ->
-    "click": "move"
+    "click": ->
+      Backbone.Mediator.pub 'point:click', @model.get("x"), @model.get("y")
     "mouseenter": ->
       Backbone.Mediator.pub 'point:mouseenter', @model.get("x"), @model.get("y")
     "mouseleave": ->
@@ -26,9 +27,6 @@ class Agehama.PointView extends Backbone.View
 
   addStatus: ->
     $(@el).addClass @model.get "status"
-
-  move: ->
-    @model.set status: "black"
 
   subscriptions:
     'point:mouseenter': 'highlight'

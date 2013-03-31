@@ -15,3 +15,10 @@ class Agehama.BordView extends Backbone.View
         $bordY.append point_view.render().el
 
       $(@el).append($bordY)
+
+  subscriptions:
+    'user:move': 'move'
+
+  move: (x, y, status) ->
+    point = @bord.getByPosition x, y
+    point.set status: status
