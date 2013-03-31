@@ -5,9 +5,11 @@ class Agehama.MoveView extends Backbone.View
   subscriptions:
     'player:startBlack': ->
       @color = '黒'
+      $(@el).removeClass('btn-info')
       @render()
     'player:startWhite': ->
       @color = '白'
+      $(@el).addClass('btn-info')
       @render()
 
   events:
