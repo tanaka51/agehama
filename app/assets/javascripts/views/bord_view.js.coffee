@@ -20,5 +20,4 @@ class Agehama.BordView extends Backbone.View
     'user:move': 'move'
 
   move: (x, y, status) ->
-    point = @bord.getByPosition x, y
-    point.set status: status
+    @bord.move x, y, status

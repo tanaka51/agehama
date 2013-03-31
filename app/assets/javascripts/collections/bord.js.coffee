@@ -16,3 +16,11 @@ class Agehama.Bord extends Backbone.Collection
 
   getByPosition: (x, y) ->
     @at(@size * y + x)
+
+  move: (x, y, status) ->
+    point = @getByPosition x, y
+    if point.get('status') == ""
+      point.set status: status
+      Backbone.Mediator.pub 'bord:successToMove', x, y, status
+    else
+      Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "既に置かれています"
