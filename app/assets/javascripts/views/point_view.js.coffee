@@ -5,7 +5,7 @@ class Agehama.PointView extends Backbone.View
   initialize: ->
     _.bindAll @
 
-    @model.bind "change:status", @addStatus
+    @model.bind "change:status", @changeStatus
 
   render: ->
     # maybe high cost...
@@ -25,8 +25,11 @@ class Agehama.PointView extends Backbone.View
     "mouseleave": ->
       Backbone.Mediator.pub 'point:mouseleave'
 
-  addStatus: ->
-    $(@el).addClass @model.get "status"
+  changeStatus: ->
+    if @model.isEmpty()
+      $(@el).removeClass('black white')
+    else
+      $(@el).addClass @model.get "status"
 
   subscriptions:
     'point:mouseenter': 'highlight'

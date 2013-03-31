@@ -4,6 +4,8 @@ class Agehama.Bord extends Backbone.Collection
   size : 19
 
   initialize: ->
+    Backbone.Mediator.sub 'clear_view:click', @allClear
+
     for y in [0...@size]
       top = y == 0
       bottom = y == (@size - 1)
@@ -43,3 +45,7 @@ class Agehama.Bord extends Backbone.Collection
     _([top, bottom, left, right]).chain().compact().all((point) ->
       enemy == point.get 'status'
     ).value()
+
+  allClear: =>
+    @each (point) ->
+      point.set status: ""
