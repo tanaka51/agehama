@@ -10,7 +10,7 @@ class Agehama.NoticeView extends Backbone.View
     @render()
 
   render: (message) ->
-    $(@el).text message || ""
+    $(@el).text message || "　"
     @
 
   renderMoveMessage: (x, y, status, message) ->

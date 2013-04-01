@@ -6,6 +6,7 @@ window.Agehama =
   initialize: ->
     new Agehama.BordView
     new Agehama.InformationView
+    new Agehama.MenuView
     new Agehama.Player
 
 $(document).ready ->
