@@ -17,7 +17,7 @@ class Agehama.BordView extends Backbone.View
       $(@el).append($bordY)
 
   subscriptions:
-    'user:move': 'move'
+    'player:move': 'move'
 
   move: (x, y, status) ->
     @bord.move x, y, status

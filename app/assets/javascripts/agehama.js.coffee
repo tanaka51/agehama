@@ -7,7 +7,8 @@ window.Agehama =
     new Agehama.BordView
     new Agehama.InformationView
     new Agehama.MenuView
-    new Agehama.Player
+    @black = new Agehama.Player color: 'black', movable: true
+    @white = new Agehama.Player color: 'white'
 
 $(document).ready ->
   Agehama.initialize()

@@ -3,22 +3,29 @@ class Agehama.MoveView extends Backbone.View
   className: 'move btn btn-block'
 
   subscriptions:
-    'player:startBlack': ->
-      @color = '黒'
-      $(@el).removeClass('btn-info')
-      @render()
-    'player:startWhite': ->
-      @color = '白'
-      $(@el).addClass('btn-info')
-      @render()
+    'player:start': 'renderWithColor'
 
   events:
     'click': ->
-      Backbone.Mediator.pub 'move_view:click'
+      Backbone.Mediator.pub 'move_view:click', @color
 
   initialize: ->
-    @color = '黒'
+    @color = 'black'
 
   render: ->
-    $(@el).text(@color)
+    color = if @color is 'black'
+      '黒'
+    else
+      '白'
+
+    $(@el).text(color)
     @
+
+  renderWithColor: (color) ->
+    @color = if color is 'black'
+      $(@el).removeClass('btn-info')
+      color
+    else
+      $(@el).addClass('btn-info')
+      color
+    @render()
