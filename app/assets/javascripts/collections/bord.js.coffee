@@ -17,35 +17,60 @@ class Agehama.Bord extends Backbone.Collection
         @add(new @model x: x, y: y, top: top, bottom: bottom, left: left, right: right, star: star)
 
   getByPosition: (x, y) ->
+    @at @calcIndex x, y
+
+  calcIndex: (x, y) ->
     return null unless 0 <= x < @size
     return null unless 0 <= y < @size
-    @at(@size * y + x)
+    @size * y + x
 
   move: (x, y, status) ->
     point = @getByPosition x, y
     if !point.isEmpty()
       Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "既に置かれています"
-    else if @isEye x, y, status
+    else if @isEye point, status
       Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "着手禁止点です"
     else
       point.set status: status
       Backbone.Mediator.pub 'bord:successToMove', x, y, status
 
-  isEye: (x, y, status) ->
-    top    = @getByPosition x, y - 1
-    bottom = @getByPosition x, y + 1
-    left   = @getByPosition x - 1, y
-    right  = @getByPosition x + 1, y
-    enemy = ''
-    if status == 'black'
-      enemy = 'white'
-    else if status == 'white'
-      enemy = 'black'
+  isEye: (point, status) ->
+    # 仮に置いてみる
+    prev_status = point.get 'status'
+    point.set {status: status}, {silent: true}
 
-    _([top, bottom, left, right]).chain().compact().all((point) ->
-      enemy == point.get 'status'
-    ).value()
+    isEye = @isRemovalStone(point.get('x'), point.get('y'), status)
+
+    # 戻す
+    point.set {status: prev_status}, {silent: true}
+    isEye
 
   allClear: =>
     @each (point) ->
       point.set status: ""
+
+  isRemovalStone: (x, y, status) =>
+    checkedPoints = []
+
+    recurcive = (x, y, status) =>
+      checkedPointIndex = @calcIndex x, y
+      return true if checkedPoints[checkedPointIndex]
+      checkedPoints[checkedPointIndex] = true
+
+      point = @getByPosition x, y
+      return false if point.isEmpty()
+
+      if point.get('status') == status
+        if x > 1
+          return false unless recurcive(x - 1, y, status)
+        if x < (@size - 1)
+          return false unless recurcive(x + 1, y, status)
+        if y > 1
+          return false unless recurcive(x, y - 1, status)
+        if y < (@size - 1)
+          return false unless recurcive(x, y + 1, status)
+
+      return true
+
+    _.bind recurcive
+    recurcive x, y, status
