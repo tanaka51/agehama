@@ -6,6 +6,8 @@ class Agehama.MenuView extends Backbone.View
     'nav_view:click:game': 'renderGame'
 
   initialize: ->
+    @practice_view = new Agehama.PracticeView
+    @game_view = new Agehama.GameView
     @render()
 
   render: ->
@@ -15,10 +17,9 @@ class Agehama.MenuView extends Backbone.View
     @renderPractice()
 
   renderPractice: =>
-    move_view = new Agehama.MoveView
-    $(@el).append move_view.render().el
-
-    clear_view = new Agehama.ClearView
-    $(@el).append clear_view.render().el
+    @game_view.unrender()
+    $(@el).append @practice_view.render().el
 
   renderGame: =>
+    @practice_view.unrender()
+    $(@el).append @game_view.render().el
