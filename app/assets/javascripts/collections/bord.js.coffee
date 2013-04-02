@@ -52,7 +52,7 @@ class Agehama.Bord extends Backbone.Collection
   isRemovalStone: (x, y, status) =>
     checkedPoints = []
 
-    recurcive = (x, y, status) =>
+    recursive = (x, y, status) =>
       checkedPointIndex = @calcIndex x, y
       return true if checkedPoints[checkedPointIndex]
       checkedPoints[checkedPointIndex] = true
@@ -62,15 +62,15 @@ class Agehama.Bord extends Backbone.Collection
 
       if point.get('status') == status
         if x > 1
-          return false unless recurcive(x - 1, y, status)
+          return false unless recursive(x - 1, y, status)
         if x < (@size - 1)
-          return false unless recurcive(x + 1, y, status)
+          return false unless recursive(x + 1, y, status)
         if y > 1
-          return false unless recurcive(x, y - 1, status)
+          return false unless recursive(x, y - 1, status)
         if y < (@size - 1)
-          return false unless recurcive(x, y + 1, status)
+          return false unless recursive(x, y + 1, status)
 
       return true
 
-    _.bind recurcive
-    recurcive x, y, status
+    _.bind recursive
+    recursive x, y, status
