@@ -32,13 +32,13 @@ class Agehama.Bord extends Backbone.Collection
     point = @getByPosition x, y
     if !point.isEmpty()
       Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "既に置かれています"
-    else if @isEye point, status
+    else if @isSurrounded point, status
       Backbone.Mediator.pub 'bord:failureToMove', x, y, status, "着手禁止点です"
     else
       point.set status: status
       Backbone.Mediator.pub 'bord:successToMove', x, y, status
 
-  isEye: (point, status) ->
+  isSurrounded: (point, status) ->
     # 仮に置いてみる
     prev_status = point.get 'status'
     point.set {status: status}, {silent: true}
