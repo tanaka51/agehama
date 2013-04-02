@@ -24,6 +24,10 @@ class Agehama.Bord extends Backbone.Collection
     return null unless 0 <= y < @size
     @size * y + x
 
+  allClear: =>
+    @each (point) ->
+      point.set status: ""
+
   move: (x, y, status) ->
     point = @getByPosition x, y
     if !point.isEmpty()
@@ -44,10 +48,6 @@ class Agehama.Bord extends Backbone.Collection
     # 戻す
     point.set {status: prev_status}, {silent: true}
     isEye
-
-  allClear: =>
-    @each (point) ->
-      point.set status: ""
 
   isRemovalStone: (x, y, status) =>
     checkedPoints = []
