@@ -26,10 +26,18 @@
         %h3#aboutLabel About
       .modal-body
         %h4 Agehama にようこそ
-        %p Agehama はブラウザ上でできる囲碁です。@tanaka51 の趣味によってつくられています。
+        %p Agehama はブラウザ上でできる囲碁です。
 
-        %h4 実装予定の機能
+        %h5 How To Use
+        %p 現在、練習モードのみ、実装されています。また、石を取り除く機能は実装されていません。
         %ul
-          %li オフラインで棋譜を保存/閲覧
-          %li 棋譜のサーバ保存
-          %li オンライン対戦
+          %li 「黒」/「白」ボタンをクリックする事で、置く石の色を変える事ができます
+          %li 「全部消す」ボタンで、今まで置いた石を全て取り除く事ができます
+
+        %h5 構成
+        %ul
+          %li Ruby 2 + Rails 4
+          %li CoffeeScript + Bacbone.js
+
+        %h5 github:
+        = link_to 'https://github.com/tanaka51-jp/agehama', 'https://github.com/tanaka51-jp/agehama'
