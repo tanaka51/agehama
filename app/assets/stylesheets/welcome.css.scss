@@ -17,7 +17,7 @@ div.bord {
   width: $max-size;
   height: $max-size;
 
-  background-image: url("background.jpg");
+  background-image: image-url("background.jpg");
   background-size: $max-size + $edge-size $max-size + $edge-size;
 }
 
@@ -42,7 +42,7 @@ div.point {
   width: $size;
   height: $size;
 
-  background-image: url("tiles.png");
+  background-image: image-url("tiles.png");
   background-position: 0px 0px;
 }
 
