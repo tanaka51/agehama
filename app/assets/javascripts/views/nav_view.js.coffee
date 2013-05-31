@@ -7,10 +7,10 @@ class Agehama.NavView extends Backbone.View
       @practice.addClass 'active'
       @game.removeClass 'active'
       Backbone.Mediator.pub 'nav_view:click:practice'
-    'click #game': ->
-      @practice.removeClass 'active'
-      @game.addClass 'active'
-      Backbone.Mediator.pub 'nav_view:click:game'
+    # 'click #game': ->
+    #   @practice.removeClass 'active'
+    #   @game.addClass 'active'
+    #   Backbone.Mediator.pub 'nav_view:click:game'
 
   initialize: ->
     @practice = $('<li id="practice">').addClass('active').append($('<a>').text('練習モード'))
